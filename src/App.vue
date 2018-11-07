@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <app-home></app-home>
-    
+    <app-header-footer></app-header-footer>
+
+    <main>
+      <app-film></app-film>
+    </main>
   </div>
 </template>
 
 <script>
 
-import AppHeader from '@components/layout/AppHeader'
-import AppHome from '@pages/home/AppHome';
+import AppHeaderFooter from './components/common/app-header-footer/AppHeaderFooter'
+import AppFilm from '@pages/film/AppFilm';
 
 
 export default {
     components : {
-      AppHome,
-      AppHeader
+      AppHeaderFooter,
+      AppFilm
     }
 }
 </script>
@@ -26,5 +28,13 @@ export default {
 
 
 <style lang="scss">
-
+  main{
+    padding-top:1.346667rem;
+    padding-bottom: 1.293333rem;
+    height:100%;
+    box-sizing: border-box;
+  }
+  html, body, #app{
+    height:100%;
+  }
 </style>

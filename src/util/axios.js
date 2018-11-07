@@ -4,10 +4,12 @@ const ajax = (options) => {
     let _react = options.react === undefined ? true : options.react;
     return axios(options)
         .then(res => {
-            console.log(res);
+            if(_react) console.log('成功')
+            return res;
         })
         .catch( err => {
-            console.log(err)
+            if(_react) console.log('失败')
+            
         })
 }
 
