@@ -25,6 +25,6 @@ module.exports = {
             .set('@style', path.resolve(__dirname,'./src/style'))
             .set('@pages', path.resolve(__dirname, './src/pages'))
             .set('@libs', path.resolve(__dirname, './src/lib'))
-            .set('@unil', path.resolve(__dirname, './src/unil'))
+            .set('@util', path.resolve(__dirname, './src/util'))
     }
 }

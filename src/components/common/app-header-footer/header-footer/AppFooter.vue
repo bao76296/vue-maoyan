@@ -1,13 +1,13 @@
 <template>
     <div id="footer">
         <div class="footer-box">
-            <div class="footer__item" 
-            v-for="item in btnList" :key="item.id"
-            :class="{ active : item.path == path  }"
-            @click="path = item.path"
+            <router-link tag="div" active-class="active"  class="footer__item" 
+                v-for="item in btnList" :key="item.id"
+                :to = "item.path"
+               
             >
-                <i  :class="item.icon"  class="iconfont "></i><span>电影</span>
-            </div>
+                <i  :class="item.icon"  class="iconfont "></i><span>{{item.name}}</span>
+            </router-link>
         </div>
     </div>
 </template>
@@ -20,19 +20,26 @@ export default {
         return {
             btnList : [
                 {
-                    id : 1, name : '电影', path : '/film', icon : 'icon-dianying'
+                    id : 1, name : '电影', path : '/film/movieOnInfoList', icon : 'icon-dianying', titleName : '猫眼电影'
                 },
                 {
-                    id : 2, name : '影院', path : '/cinema', icon : 'icon-dianyingyuan'
+                    id : 2, name : '影院', path : '/cinema', icon : 'icon-dianyingyuan', titleName : '影院'
                 },
                 {
-                    id : 3, name : '我的', path : '/mine', icon : 'icon-home-copy-copy'
+                    id : 3, name : '我的', path : '/mine', icon : 'icon-home-copy-copy', titleName : '我的'
                 }
             ],
             path : '/film',
 
         }
-    }
+    },
+    // methods : {
+         
+    // },
+    // created(){
+    //     this.$bus.$emit('change1', this.btnList[0].titleName)
+    // }
+   
 }
 </script>
 

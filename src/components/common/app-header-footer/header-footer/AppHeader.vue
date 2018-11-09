@@ -2,14 +2,42 @@
 
     <div id="header">
          <div class="title">
-             影院
+             {{title}}
          </div>
     </div>
 </template>
 
 <script>
 export default {
+    data () {
+        return {
+            title : '猫眼电影'
+        }
+    },
+    methods : {
+        chooseTitle(to){
+            
+            to = to || this.$route;
+            console.log(to.name)
+            switch(to.name){
+                case 'film' : return '猫眼电影';
+                case 'cinema' : return '影院';
+                case 'mine' : return '我的';
+                default : return '猫眼电影';
+            }
+        }
+    },
+    created(){
+        // this.$bus.$on('change1', (val) => {
+        //     this.title = val
+        // })
+         this.title = this.chooseTitle()
+        this.$router.beforeEach((to, from, next) => {
+            this.title = this.chooseTitle(to)
+            next();
+        }) 
 
+    }
 }
 </script>
 

@@ -26,8 +26,10 @@
         </div>
 
 
-
-    <app-list :type = "type" ></app-list>
+    <keep-alive>
+         <app-list :type = "type" ></app-list>
+    </keep-alive>
+   
     </div>
 </template>
 
@@ -36,6 +38,7 @@
  import AppList from '@components/app-film/AppList';
 
 export default {
+    props : ['url'],
     name : 'AppFilm',
     components : {
         AppList
@@ -46,7 +49,7 @@ export default {
                 {id : 1, title : "正在热映", type : 'movieOnInfoList'},
                 {id : 2, title : '即将上映', type : 'comingList'}
             ],
-            type : 'movieOnInfoList'
+            type : this.url || 'movieOnInfoList'
         }
     }
 }
@@ -59,9 +62,10 @@ export default {
         color:#666;
         height:100%;
        .film-list-nav{
+            z-index: 5;
             position: fixed;
             background: white;
-            top:1.2rem;
+            top:1.346667rem;
             width:10rem;
             height:1.2rem;
             border-bottom: 0.026667rem solid #e6e6e6;

@@ -3,7 +3,11 @@
     <app-header-footer></app-header-footer>
 
     <main>
-      <app-film></app-film>
+      <keep-alive include="">
+        <router-view></router-view>
+      </keep-alive>
+      
+     
     </main>
   </div>
 </template>
@@ -11,13 +15,12 @@
 <script>
 
 import AppHeaderFooter from './components/common/app-header-footer/AppHeaderFooter'
-import AppFilm from '@pages/film/AppFilm';
+
 
 
 export default {
     components : {
-      AppHeaderFooter,
-      AppFilm
+      AppHeaderFooter
     }
 }
 </script>
